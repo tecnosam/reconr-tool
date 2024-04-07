@@ -111,6 +111,9 @@ def read_csv(
         logging.error("We could not find the file %s. Please provide a different path", fp)
 
         return None
+    except UnicodeDecodeError:
+
+        logging.error("File %s is not a valid CSV File! Only CSV files are supported", fp)
 
 
 def find_missing_records(records_a: dict, records_b: dict) -> Tuple[list, list]:
